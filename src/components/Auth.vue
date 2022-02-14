@@ -223,13 +223,14 @@ export default {
       }
 
       try {
-        await usersCollection.Add({
+        await usersCollection.add({
           name: values.name,
-          // email: values.email,
-          // age: values.age,
-          // country: values.country,
+          email: values.email,
+          age: values.age,
+          country: values.country,
         });
       } catch (error) {
+        console.log(error);
         this.reg_in_submission = false;
         this.reg_alert_variant = 'bg-red-500';
         this.reg_alert_massage = 'An unexpected error occured. PLllease try again later.';
