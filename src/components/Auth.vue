@@ -209,7 +209,7 @@ export default {
       this.reg_in_submission = true;
       this.reg_show_alert = true;
       this.reg_alert_variant = 'bg-blue-500';
-      this.reg_alert_massage = 'Please wait, you are being logged in. ';
+      this.reg_alert_massage = 'Please wait, your account is being created. ';
 
       try {
         userCred = await auth.createUserWithEmailAndPassword(
@@ -237,6 +237,7 @@ export default {
         return;
       }
       this.reg_alert_variant = 'bg-green-500';
+      this.$store.commit('toggleAuth');
       this.reg_alert_massage = 'Success!  Your account has been created.';
 
       console.log(userCred);
